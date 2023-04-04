@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        // 编译后的输出目录
+        "outDir": "dist",
+        // 输出的 module 类型：CommonJS ES6 None UMD AMD System ESNext
+        "module": "esnext",
+        // 编译后的目标版本
+        "target": "es5",
+        // 生成声明文件 *.d.ts，未每个 ts 文件生成一个声明文件
+        "declaration": true,
+        // jsx 有三种模式：preserve，react 和 react-native
+        "jsx": "react",
+        "moduleResolution": "node",
+        // 支持 default 的方式
+        "allowSyntheticDefaultImports": true
+    },
+    // 需要编译的文件
+    "include": [
+        "src"
+    ],
+    // 不需要编译的文件
+    "exclude": [
+       "src/**/*.test.tsx", 
+       "src/**/*.stories.tsx", 
+    ]
+}

@@ -1,0 +1,96 @@
+.voss-input {
+    display: flex;
+    align-items: center;
+    .icon-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 35px;
+        justify-content: center;
+        color: $input-color;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        svg {
+            color: $input-placeholder-color;
+        }
+    }
+    .input-inner {
+        outline: none;
+        padding: $input-padding-y $input-padding-x;
+        border: $input-border-width solid $input-border-color;
+        border-radius: $input-border-radius;
+        background-color: $input-bg;
+        &::placeholder {
+            color: $input-placeholder-color;
+            opacity: 1;
+        }
+        &:focus {
+            border-color: $input-focus-border-color;
+        }
+    }
+    font-size: $input-font-size;
+    font-family: $input-font-family;
+    font-weight: $input-font-weight;
+}
+.input-wrap {
+    position: relative;
+}
+.icon-wrapper+.input-inner {
+    padding-right: 35px;
+}
+.is-disabled {
+    .input-inner {
+        background-color: $input-disabled-bg;
+        border-color: $input-disabled-border-color;
+        &:disabled {
+            background-color: $input-disabled-bg;
+            border-color: $input-disabled-border-color;
+        }
+        &[read-only] {
+            background-color: $input-disabled-bg;
+            border-color: $input-disabled-border-color;
+            opacity: 1;
+        }
+    }
+}
+.input-prepand,
+.input-append {
+    padding: $input-padding-y $input-padding-x;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    background-color: $input-group-addon-bg;
+    color: $input-group-addon-color;
+}
+.input-width-prepend {
+    .input-prepand {
+        @include border-right-radius(0);
+        border-right: none;
+    }
+    .input-inner {
+        @include border-left-radius(0);
+    }
+}
+.input-width-append {
+    .input-append {
+        @include border-left-radius(0);
+        border-left: none;
+    }
+    .input-inner {
+        @include border-right-radius(0);
+    }
+}
+.icon-wrap {
+    position: absolute;
+}
+.input-size-lg {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $input-font-size-lg;
+    border-radius: $input-border-radius-lg;
+}
+
+.input-size-sm {
+    padding: $input-padding-y-lg $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+    border-radius: $input-border-radius-sm;
+}

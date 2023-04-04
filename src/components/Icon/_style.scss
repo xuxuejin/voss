@@ -1,0 +1,11 @@
+// 如果手动一个一个添加颜色 低效且无趣
+// .icon-primary {
+//     color: $primary;
+// }
+// sass 提供了便利方法
+@each $key, $val in $theme-colors {
+    .icon-#{$key} {
+        color: $val
+    }
+}
+// 遍历添加了所有主题色
