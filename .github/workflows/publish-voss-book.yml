@@ -1,8 +1,6 @@
 name: GitHub Actions Build and Deploy Voss
 run-name: ${{ github.actor }} is deploy voss storybook 🚀
 on: [push]
-paths-ignore: # 下列文件的变更不触发部署，可以自行添加
-  - README.md
 jobs:
   deploy-voss-storybook:
     runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本(温馨提示：和你所使用的操作系统及服务器系统无关)
