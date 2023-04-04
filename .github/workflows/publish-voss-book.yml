@@ -7,10 +7,13 @@ jobs:
     steps:
       - run: echo "🚀 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      - name: Checkout # 将代码拉到虚拟机
+        uses: actions/checkout@v3
+      - name: install and build # 下载依赖和打包
+        run: |
+          npm install
+          npm run build
+      - name: Deploy 🚀
       - run: npm run test:nowatch
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: echo "🍏 This job's status is ${{ job.status }}."
