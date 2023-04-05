@@ -3,10 +3,13 @@ run-name: ${{ github.actor }} is deploy voss storybook 🚀
 on: [push]
 jobs:
   deploy-voss-storybook:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本(温馨提示：和你所使用的操作系统及服务器系统无关)
     steps:
+      - run: echo "🚀 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - name: Checkout # 将代码拉到虚拟机
       - uses: actions/checkout@v3
-      - name: install nodejs
+      - name: install nodejs # 安装 node
         uses: actions/setup-node@v3
         with:
           node-version: 19

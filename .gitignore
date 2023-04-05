@@ -13,7 +13,6 @@
 /dist
 /storybook-static
 
-.storybook/
 .vscode/
 
 # misc
