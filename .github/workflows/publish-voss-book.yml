@@ -1,19 +1,22 @@
 name: GitHub Actions Build and Deploy Voss
-run-name: ${{ github.actor }} is deploy voss storybook 🚀
+run-name: deploy voss storybook 🚀
 on: [push]
 jobs:
   deploy-voss-storybook:
-    runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本(温馨提示：和你所使用的操作系统及服务器系统无关)
+    # 使用 ubuntu 系统镜像运行自动化脚本(温馨提示：和你所使用的操作系统及服务器系统无关)
+    runs-on: ubuntu-latest
     steps:
-      - run: echo "🚀 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - name: Checkout # 将代码拉到虚拟机
-      - uses: actions/checkout@v3
-      - name: install nodejs # 安装 node
+      # 将代码拉到虚拟机
+      - name: Checkout
+        uses: actions/checkout@v3
+      # 安装 node
+      - name: install nodejs
         uses: actions/setup-node@v3
         with:
           node-version: 19
+      # 安装依赖
       - name: install deps
         run: npm install
+      # 执行 build 命令
       - name: build voss bookstory
         run: npm run build-storybook
