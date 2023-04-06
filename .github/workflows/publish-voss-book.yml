@@ -28,9 +28,9 @@ jobs:
       # 第二步是构建和部署，使用的 action 是 JamesIves/github-pages-deploy-action@v4
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
-        env:
+        with:
           # 在 setting 生成 token
-          access_token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
           # The folder the action should deploy.
           folder: /home/runner/work/voss/voss/storybook-static
