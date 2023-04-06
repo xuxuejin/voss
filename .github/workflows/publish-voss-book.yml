@@ -32,4 +32,5 @@ jobs:
           # 在 setting 生成 token
           access_token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
-          folder: storybook-static # The folder the action should deploy.
+          # The folder the action should deploy.
+          folder: /home/runner/work/voss/voss/storybook-static
