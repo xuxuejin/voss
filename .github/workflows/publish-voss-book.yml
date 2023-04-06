@@ -20,3 +20,11 @@ jobs:
       # 执行 build 命令
       - name: build voss bookstory
         run: npm run build-storybook
+      # 到这里就完成打包任务了
+      # 输出如下：info => Output directory: /home/runner/work/voss/voss/storybook-static
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: gh-pages
+          folder: storybook-static # The folder the action should deploy.
