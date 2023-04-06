@@ -30,6 +30,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         env:
           # 在 setting 生成 token
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: storybook-static # The folder the action should deploy.
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: gh-pages
+          folder: storybook-static # The folder the action should deploy.
