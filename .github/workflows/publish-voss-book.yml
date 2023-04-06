@@ -1,3 +1,4 @@
+# 工作流名字
 name: GitHub Actions Build and Deploy Voss
 run-name: deploy voss storybook 🚀
 on: [push]
@@ -6,7 +7,7 @@ jobs:
     # 使用 ubuntu 系统镜像运行自动化脚本(温馨提示：和你所使用的操作系统及服务器系统无关)
     runs-on: ubuntu-latest
     steps:
-      # 将代码拉到虚拟机
+      # 第一步是获取源码，使用的 action 是 actions/checkout@v3
       - name: Checkout
         uses: actions/checkout@v3
       # 安装 node
@@ -21,10 +22,13 @@ jobs:
       - name: build voss bookstory
         run: npm run build-storybook
       # 到这里就完成打包任务了
-      - name: Checkout
-        uses: actions/checkout@v3
+      # - name: Checkout
+      #   uses: actions/checkout@v3
       # 输出如下：info => Output directory: /home/runner/work/voss/voss/storybook-static
+      # 第二步是构建和部署，使用的 action 是 JamesIves/github-pages-deploy-action@v4
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: storybook-static # The folder the action should deploy.
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: storybook-static # The folder the action should deploy.
