@@ -24,8 +24,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # 在 setting 生成 token
-          token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
           # The folder the action should deploy.
           folder: storybook-static
